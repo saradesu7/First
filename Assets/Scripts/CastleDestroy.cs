@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICastleDestroy
+/*public interface ICastleDestroy
 {
     void OnChangeScore(int Score);
-}
+}*/
 public class CastleDestroy : MonoBehaviour
 {
 
     public static CastleDestroy Instance;
     [SerializeField] private Sprite First;
     [SerializeField] private Sprite Second;
+
     private int Counter = 1;
 
-    public List<ICastleDestroy> iDestroySubscription = new List<ICastleDestroy>();
-    private void Awake()
+   // public List<ICastleDestroy> iDestroySubscription = new List<ICastleDestroy>();
+  /*  private void Awake()
     {
         if (Instance == null)
             Instance = this;
-    }
+    }*/
     void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        gameManager.Score -= 100; 
         Counter++;
         if (Counter == 3)
         {
@@ -34,7 +35,7 @@ public class CastleDestroy : MonoBehaviour
         }
         else if (Counter >= 10)
         {
-            iDestroySubscription.ForEach(x => x.OnChangeScore(1000));
+            // iDestroySubscription.ForEach(x => x.OnChangeScore(1000));
             Debug.Log("DestryCastle");
             gameObject.SetActive(false);
         }

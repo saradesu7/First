@@ -3,7 +3,10 @@ guid: 26859bd502e5ff74695015dee0b31a36
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - firePoint: {instanceID: 0}
+  - arrow: {instanceID: 0}
+  - m_ThisAnimator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

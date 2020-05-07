@@ -6,12 +6,14 @@ public class ArcherWeapon : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
-    private void Start()
+    [SerializeField] private AudioClip hit;
+    private void FixedUpdate()
     {
         rb.velocity = transform.right * speed;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(hit, transform.position);
+        gameObject.SetActive(false);
     }
 }

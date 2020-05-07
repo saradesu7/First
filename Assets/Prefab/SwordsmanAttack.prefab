@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 7741071060114081748}
   - component: {fileID: 7741071060114081746}
   - component: {fileID: 7741071060114081745}
-  - component: {fileID: 2781620470637466748}
   - component: {fileID: 6542296070893857121}
   m_Layer: 11
   m_Name: SwordsmanAttack
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,18 +136,6 @@ EdgeCollider2D:
   - {x: -0.4654248, y: -1.8771968}
   - {x: 0.23073195, y: -2.2794406}
   - {x: 0.988833, y: -2.2669022}
---- !u!114 &2781620470637466748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7741071060114081744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0648783589971e41b497794744bacec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6542296070893857121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +151,4 @@ MonoBehaviour:
   archer: {fileID: 5952545416624013015, guid: 21a1502ea4ed3814ab44fc79ddc9a50b, type: 3}
   rb: {fileID: 7741071060114081746}
   speed: 10
+  hit: {fileID: 8300000, guid: 7dd7eb5104ea3be42b4c85d3d4f1554f, type: 3}

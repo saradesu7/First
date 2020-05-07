@@ -7,15 +7,24 @@ public class Archer : MonoBehaviour
     [SerializeField] private GameObject arrow;
     [SerializeField] private Animator m_ThisAnimator;
     [SerializeField] private float m_speed;
-    [SerializeField] private static float HP = 100f;
+    private int HPcount = 0;
     private bool m_facingRight = true;
-    private int count = 0;
-    void Update()
+
+    List<GameObject> arrowlist;
+
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        arrowlist = new List<GameObject>();
+        for (int i = 0; i < 5; i++)
         {
-           // Callarrow();
+            GameObject objarrow = (GameObject)Instantiate(arrow);
+            objarrow.SetActive(false);
+            arrowlist.Add(objarrow);
         }
+    }
+
+    void FixedUpdate()
+    {
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += Vector3.right * m_speed * Time.deltaTime;
@@ -46,19 +55,17 @@ public class Archer : MonoBehaviour
         {
             StopRun();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             m_ThisAnimator.Play("ArcherAttack", -1, 0f);
-            if (count <= 3)
-            {
-                Instantiate(arrow, firePoint.position, firePoint.rotation);
-                count++;
-            }
-            else
-                count = 0;
+            Create();
         }
-        if (HP == 0)
+        if (HPcount >= 20)
+        {
+            gameManager.Score -= 100f;
             Destroy(gameObject);
+        }
+        Debug.Log(HPcount);
     }
 
     private void StopRun()
@@ -75,6 +82,29 @@ public class Archer : MonoBehaviour
 
     public void Damage()
     {
-        HP = HP - 5f;
+        gameManager.Score -= 5f;
     }
+
+    private void Create()
+    {
+        for (int i = 0; i < arrowlist.Count; i++)
+        {
+            if (!arrowlist[i].activeInHierarchy)
+            {
+                arrowlist[i].transform.position = firePoint.position;
+                arrowlist[i].transform.rotation = firePoint.rotation;
+                arrowlist[i].SetActive(true);
+                break;
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        HPcount++;
+    }
+    /* public void OnChangeScore(int Score)
+     {
+         m_Score = Score;
+     }*/
 }
