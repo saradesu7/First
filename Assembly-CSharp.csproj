@@ -69,6 +69,8 @@
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\EnemyWeapon.cs" />
     <Compile Include="Assets\Scripts\HpEnemy.cs" />
+    <Compile Include="Assets\Scripts\HpEnemy2.cs" />
+    <Compile Include="Assets\Scripts\Magician.cs" />
     <Compile Include="Assets\Scripts\Swordsman.cs" />
     <Compile Include="Assets\Scripts\destroy.cs" />
     <Compile Include="Assets\Scripts\gameManager.cs" />

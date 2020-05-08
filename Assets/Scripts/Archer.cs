@@ -60,7 +60,7 @@ public class Archer : MonoBehaviour
             m_ThisAnimator.Play("ArcherAttack", -1, 0f);
             Create();
         }
-        if (HPcount >= 20)
+        if (HPcount >= 35)
         {
             gameManager.Score -= 100f;
             Destroy(gameObject);
@@ -103,8 +103,4 @@ public class Archer : MonoBehaviour
     {
         HPcount++;
     }
-    /* public void OnChangeScore(int Score)
-     {
-         m_Score = Score;
-     }*/
 }

@@ -23,7 +23,7 @@ public class CastleDestroy : MonoBehaviour
     }*/
     void OnCollisionEnter2D(Collision2D collision)
     {
-        gameManager.Score -= 100; 
+        gameManager.Score -= 15; 
         Counter++;
         if (Counter == 3)
         {

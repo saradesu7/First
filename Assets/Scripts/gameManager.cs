@@ -8,14 +8,16 @@ public class gameManager : MonoBehaviour
 {
     public static float Score;
     [SerializeField] private Text m_score;
-    [SerializeField] private Text highScore;
+    [SerializeField] private Text highScore1;
+    [SerializeField] private Text highScore2;
     [SerializeField] private Text currentScore;
     [SerializeField] private GameObject Character;
     [SerializeField] private Button archerButton;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameScreen;
-    [SerializeField] private GameObject endScreen;
+    [SerializeField] private GameObject endScreen1;
+    [SerializeField] private GameObject endScreen2;
     [SerializeField] private GameObject howToPlay;
     [SerializeField] private GameObject castle;
     [SerializeField] private Animator gameName;
@@ -27,6 +29,8 @@ public class gameManager : MonoBehaviour
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
         gameScreen.SetActive(false);
+        howToPlay.SetActive(false);
+        //PlayerPrefs.SetFloat("HighScore", 0f);
     }
 
     private void FixedUpdate()
@@ -35,16 +39,21 @@ public class gameManager : MonoBehaviour
         if (Score >= 500)
             archerButton.interactable = true;
 
-        if(PlayerPrefs.GetFloat("HighScore") < Score)
-            PlayerPrefs.SetFloat("HighScore", Score);
-
         if (castle.activeSelf == false)
         {
             currentScore.text = Score.ToString();
-            highScore.text = PlayerPrefs.GetFloat("HighScore").ToString();
-            endScreen.SetActive(true);
+            highScore1.text = PlayerPrefs.GetFloat("HighScore").ToString();
+            if (PlayerPrefs.GetFloat("HighScore") < Score)
+            {
+                PlayerPrefs.SetFloat("HighScore", Score);
+                highScore2.text = PlayerPrefs.GetFloat("HighScore").ToString();
+                endScreen2.SetActive(true);
+            }
+            else
+                endScreen1.SetActive(true);
             Time.timeScale = 0;
         }
+
     }
     public void OnClickSpawnButton()
     {

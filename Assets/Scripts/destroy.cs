@@ -11,7 +11,7 @@ public class destroy : MonoBehaviour
     {
         layerMask = LayerMask.GetMask("Archer");
         if (layerMask.value == 1<<layer)
-            Debug.Log("bitch");
+            Debug.Log("heree");
         Debug.Log(layerMask);
         Destroy(gameObject);
     }
