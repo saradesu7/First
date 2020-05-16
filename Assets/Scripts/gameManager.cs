@@ -8,9 +8,9 @@ public class gameManager : MonoBehaviour
 {
     public static float Score;
     [SerializeField] private Text m_score;
-    [SerializeField] private Text highScore1;
-    [SerializeField] private Text highScore2;
-    [SerializeField] private Text currentScore;
+    [SerializeField] private TMPro.TextMeshProUGUI highScore1;
+    [SerializeField] private TMPro.TextMeshProUGUI highScore2;
+    [SerializeField] private TMPro.TextMeshProUGUI currentScore;
     [SerializeField] private GameObject Character;
     [SerializeField] private Button archerButton;
     [SerializeField] private GameObject mainMenu;
@@ -20,10 +20,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] private GameObject endScreen2;
     [SerializeField] private GameObject howToPlay;
     [SerializeField] private GameObject castle;
-    [SerializeField] private Animator gameName;
     private void Start()
     {
-        gameName.Play("GameName");
         Time.timeScale = 0;
         Score = 500;
         mainMenu.SetActive(true);
@@ -51,6 +49,7 @@ public class gameManager : MonoBehaviour
             }
             else
                 endScreen1.SetActive(true);
+            gameScreen.SetActive(false);
             Time.timeScale = 0;
         }
 
@@ -100,6 +99,11 @@ public class gameManager : MonoBehaviour
     public void OnClickHowToPlay()
     {
         howToPlay.SetActive(true);
+    }
+
+    public void onClickQuit()
+    {
+        Application.Quit();
     }
 
 }

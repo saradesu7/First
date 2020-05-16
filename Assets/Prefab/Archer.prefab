@@ -279,4 +279,4 @@ MonoBehaviour:
   firePoint: {fileID: 311879257}
   arrow: {fileID: 775795239256801744, guid: 53f36b689742435439f7279f5ae170f2, type: 3}
   m_ThisAnimator: {fileID: 4077788841447791457}
-  m_speed: 4
+  m_speed: 6

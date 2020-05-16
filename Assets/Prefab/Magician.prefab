@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ThisAnimator: {fileID: 4887012408334135091}
-  m_speed: 5
+  m_speed: 7
   archer: {fileID: 5952545416624013015, guid: 21a1502ea4ed3814ab44fc79ddc9a50b, type: 3}
   castle: {fileID: 0}
   firePoint: {fileID: 4887012409816509166}
